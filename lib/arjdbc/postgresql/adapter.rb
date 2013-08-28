@@ -86,11 +86,11 @@ module ArJdbc
       # If using Active Record's time zone support configure the connection to return
       # TIMESTAMP WITH ZONE types in UTC.
       # (SET TIME ZONE does not use an equals sign like other SET variables)
-      if ActiveRecord::Base.default_timezone == :utc
-        execute("SET time zone 'UTC'", 'SCHEMA')
-      elsif tz = local_tz
-        execute("SET time zone '#{tz}'", 'SCHEMA')
-      end # if defined? ActiveRecord::Base.default_timezone
+#      if ActiveRecord::Base.default_timezone == :utc
+#        execute("SET time zone 'UTC'", 'SCHEMA')
+#      elsif tz = local_tz
+#        execute("SET time zone '#{tz}'", 'SCHEMA')
+#      end # if defined? ActiveRecord::Base.default_timezone
 
       # SET statements from :variables config hash
       # http://www.postgresql.org/docs/8.3/static/sql-set.html
@@ -730,12 +730,12 @@ module ArJdbc
 
     # Returns the current client message level.
     def client_min_messages
-      select_value('SHOW client_min_messages', 'SCHEMA')
+#      select_value('SHOW client_min_messages', 'SCHEMA')
     end
 
     # Set the client message level.
     def client_min_messages=(level)
-      execute("SET client_min_messages TO '#{level}'", 'SCHEMA')
+#      execute("SET client_min_messages TO '#{level}'", 'SCHEMA')
     end
 
     # Gets the maximum number columns postgres has, default 32
